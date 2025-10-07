@@ -2,41 +2,21 @@
 export const getBookings = () => {
   try {
     const bookings = localStorage.getItem('homeServices-bookings');
-    return bookings ? JSON.parse(bookings) : [
-      {
-        id: "B001",
-        service: "Plumbing",
-        date: "2025-10-15",
-        time: "10:00 AM",
-        status: "Scheduled",
-        provider: "Mike Johnson",
-        price: 499,
-        address: "123 Main St, City"
-      },
-      {
-        id: "B002",
-        service: "AC Repair",
-        date: "2025-10-20",
-        time: "2:30 PM",
-        status: "Completed",
-        provider: "Emily Rodriguez",
-        price: 1299,
-        address: "456 Oak Ave, City"
-      },
-      {
-        id: "B003",
-        service: "House Cleaning",
-        date: "2025-10-12",
-        time: "9:00 AM",
-        status: "In Progress",
-        provider: "Juan Carlos",
-        price: 899,
-        address: "789 Pine Rd, City"
-      }
-    ];
+    return bookings ? JSON.parse(bookings) : [];
   } catch (error) {
     console.error('Error reading bookings:', error);
     return [];
+  }
+};
+
+// Clear all bookings (for development/testing)
+export const clearAllBookings = () => {
+  try {
+    localStorage.removeItem('homeServices-bookings');
+    return true;
+  } catch (error) {
+    console.error('Error clearing bookings:', error);
+    return false;
   }
 };
 
