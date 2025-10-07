@@ -167,28 +167,28 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-orange-50 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden"
       >
         {/* Background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="floating absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-orange-200 to-pink-200 rounded-full opacity-20 blur-xl"></div>
-          <div className="floating absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full opacity-20 blur-xl"></div>
-          <div className="floating absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-pink-200 to-orange-200 rounded-full opacity-20 blur-xl"></div>
-          <div className="floating absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full opacity-20 blur-xl"></div>
+          <div className="floating absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-indigo-200 to-blue-200 rounded-full opacity-20 blur-xl"></div>
+          <div className="floating absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full opacity-20 blur-xl"></div>
+          <div className="floating absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-20 blur-xl"></div>
+          <div className="floating absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-cyan-200 to-blue-200 rounded-full opacity-20 blur-xl"></div>
         </div>
 
         <motion.div
           className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
           style={{ scale: springScale, opacity: springOpacity }}
         >
-          <div className="hero-gradient absolute inset-0 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-3xl blur-3xl scale-110"></div>
+          <div className="hero-gradient absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 rounded-3xl blur-3xl scale-110"></div>
 
           <div className="relative z-20">
             <motion.h1
               className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
             >
               Professional Home Services
-              <span className="block bg-gradient-to-r from-orange-500 to-pink-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 At Your Doorstep
               </span>
             </motion.h1>
@@ -200,7 +200,7 @@ export default function Home() {
 
             <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
               <AnimatedButton
-                className="px-8 py-4 text-lg shadow-xl bg-orange-500 text-white hover:bg-orange-600 hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 text-lg shadow-xl bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-2xl transition-all duration-300"
                 onClick={navigateToServices}
                 ariaLabel="Browse our services"
               >
@@ -208,7 +208,7 @@ export default function Home() {
               </AnimatedButton>
 
               <AnimatedButton
-                className="px-8 py-4 text-lg shadow-xl bg-white text-gray-900 hover:bg-gray-50 border-2 border-gray-200 hover:border-orange-300 hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 text-lg shadow-xl bg-white text-gray-900 hover:bg-gray-50 border-2 border-gray-200 hover:border-indigo-300 hover:shadow-2xl transition-all duration-300"
                 onClick={() => scrollToSection('features')}
                 ariaLabel="Learn more about our services"
               >
@@ -323,7 +323,7 @@ export default function Home() {
       {/* Stats Section */}
       <section
         ref={statsRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-orange-500 to-pink-600"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-indigo-600 to-blue-600"
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -436,7 +436,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <AnimatedButton
-                className="px-8 py-4 text-lg shadow-xl bg-orange-500 text-white hover:bg-orange-600 hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 text-lg shadow-xl bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-2xl transition-all duration-300"
                 onClick={navigateToServices}
                 ariaLabel="Start booking services"
               >
@@ -444,7 +444,7 @@ export default function Home() {
               </AnimatedButton>
 
               <AnimatedButton
-                className="px-8 py-4 text-lg shadow-xl bg-white text-gray-900 hover:bg-gray-50 border-2 border-gray-200 hover:border-orange-300 hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 text-lg shadow-xl bg-white text-gray-900 hover:bg-gray-50 border-2 border-gray-200 hover:border-indigo-300 hover:shadow-2xl transition-all duration-300"
                 onClick={() => navigate('/contact')}
                 ariaLabel="Contact us for more information"
               >
