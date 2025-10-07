@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS variables for easy palette overrides */
+:root {
+  --accent: #FF6A3D;
+  --bg: #0F1724;
+  --card: #0b1220;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Small utilities */
+.hero-bg {
+  background: linear-gradient(135deg, rgba(255,106,61,0.08), rgba(6,7,12,0));
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: 0; }
+}
