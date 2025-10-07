@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
-import { motion, useScroll, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 
 export default function Header() {
@@ -14,7 +14,6 @@ export default function Header() {
   const location = useLocation();
 
   const headerRef = useRef(null);
-  const logoRef = useRef(null);
   const searchRef = useRef(null);
 
   // Scroll-based background blur and opacity
@@ -23,39 +22,17 @@ export default function Header() {
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.05], [0.95, 0.85]);
 
-  // Magnetic effect for logo
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const logoX = useSpring(mouseX, { stiffness: 100, damping: 25 });
-  const logoY = useSpring(mouseY, { stiffness: 100, damping: 25 });
-
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!logoRef.current) return;
-
-      const logoRect = logoRef.current.getBoundingClientRect();
-      const logoCenterX = logoRect.left + logoRect.width / 2;
-      const logoCenterY = logoRect.top + logoRect.height / 2;
-
-      const deltaX = (e.clientX - logoCenterX) * 0.1;
-      const deltaY = (e.clientY - logoCenterY) * 0.1;
-
-      mouseX.set(deltaX);
-      mouseY.set(deltaY);
-    };
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [mouseX, mouseY]);
+  }, []);
 
   const toggleMobileMenu = () => {
     setMobileMenu((prev) => {
@@ -161,16 +138,11 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
 
-          {/* Logo - Magnetic Effect */}
+          {/* Logo */}
           <motion.div
-            ref={logoRef}
             className="flex items-center cursor-pointer group relative"
             whileHover={{ scale: 1.02 }}
             onClick={handleLogoClick}
-            style={{
-              x: logoX,
-              y: logoY
-            }}
           >
             {/* Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-pink-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
