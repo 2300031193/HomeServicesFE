@@ -1,338 +1,189 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+
+const serviceIcons = {
+  "Professional Plumbing": "🔧",
+  "Electrical Services": "⚡",
+  "Home Deep Cleaning": "🧹",
+  "AC & HVAC Service": "❄️",
+  "Professional Painting": "🎨",
+  "Carpentry & Woodwork": "🔨",
+  "Smart Home Installation": "🤖",
+  "Bathroom Renovation": "🚿",
+  "Flooring Solutions": "🏠",
+  "Pest Control Solutions": "🐛",
+  "Kitchen Appliances Repair": "⚙️",
+  "Garden & Landscaping": "🌳",
+  "Roofing & Gutter Service": "🏠",
+  "Window Installation & Repair": "🪟",
+  "Security System Installation": "🛡️",
+  "Pool & Spa Maintenance": "🏊",
+  "Chimney & Fireplace Service": "🏠",
+  "Handyman Services": "🔧"
+};
 
 export default function ServiceCard({ service, index = 0, variant = "default" }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const cardRef = useRef(null);
-
-  // Magnetic effect
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const cardX = useSpring(mouseX, { stiffness: 150, damping: 20 });
-  const cardY = useSpring(mouseY, { stiffness: 150, damping: 20 });
-
-  // 3D rotation based on mouse
-  const rotateX = useTransform(cardY, [-100, 100], [10, -10]);
-  const rotateY = useTransform(cardX, [-100, 100], [-10, 10]);
-
-  // Dynamic shadow based on hover
-  const shadowY = useTransform(cardY, [-100, 100], [0, 20]);
-  const shadowOpacity = useSpring(isHovered ? 1 : 0, { stiffness: 400, damping: 25 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!cardRef.current) return;
-
-      const rect = cardRef.current.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-      const deltaX = (e.clientX - centerX) * 0.15;
-      const deltaY = (e.clientY - centerY) * 0.15;
-
-      mouseX.set(deltaX);
-      mouseY.set(deltaY);
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseLeave = () => {
-      mouseX.set(0);
-      mouseY.set(0);
-    };
-
-    if (cardRef.current) {
-      cardRef.current.addEventListener('mousemove', handleMouseMove);
-      cardRef.current.addEventListener('mouseleave', handleMouseLeave);
-    }
-
-    return () => {
-      if (cardRef.current) {
-        cardRef.current.removeEventListener('mousemove', handleMouseMove);
-        cardRef.current.removeEventListener('mouseleave', handleMouseLeave);
-      }
-    };
-  }, [mouseX, mouseY]);
-
-  let cardClasses = "relative group overflow-hidden cursor-pointer";
-  let wrapperClasses = "relative h-full";
+  let cardClasses = "relative bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden group cursor-pointer";
 
   if (variant === "featured") {
-    cardClasses += " bg-gradient-to-br from-white via-orange-50/30 to-white border border-orange-100/50";
-    wrapperClasses += " p-8";
-  } else if (variant === "minimal") {
-    cardClasses += " bg-white border border-gray-100";
-    wrapperClasses += " p-6";
-  } else {
-    cardClasses += " bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100/50 transition-all duration-500";
-    wrapperClasses += " p-6";
+    cardClasses += " shadow-2xl hover:shadow-3xl border-purple-200";
   }
 
   const cardVariants = {
     default: {
-      initial: { opacity: 0, y: 20 },
+      initial: { opacity: 0, y: 25 },
       animate: { opacity: 1, y: 0 },
-      transition: { duration: 0.5, delay: index * 0.1 }
+      transition: { duration: 0.4, delay: index * 0.08 }
     },
     featured: {
       initial: { opacity: 0, scale: 0.95 },
       animate: { opacity: 1, scale: 1 },
-      transition: { duration: 0.6, delay: index * 0.15 }
+      transition: { duration: 0.5, delay: index * 0.1 }
     }
+  };
+
+  const iconBgColors = {
+    "Professional Plumbing": "bg-blue-500",
+    "Electrical Services": "bg-yellow-500",
+    "Home Deep Cleaning": "bg-green-500",
+    "AC & HVAC Service": "bg-cyan-500",
+    "Professional Painting": "bg-pink-500",
+    "Carpentry & Woodwork": "bg-amber-600",
+    "Smart Home Installation": "bg-purple-500",
+    "Bathroom Renovation": "bg-teal-500",
+    "Flooring Solutions": "bg-gray-600",
+    "Pest Control Solutions": "bg-red-500",
+    "Kitchen Appliances Repair": "bg-indigo-500",
+    "Garden & Landscaping": "bg-emerald-500",
+    "Roofing & Gutter Service": "bg-gray-700",
+    "Window Installation & Repair": "bg-slate-500",
+    "Security System Installation": "bg-red-600",
+    "Pool & Spa Maintenance": "bg-blue-600",
+    "Chimney & Fireplace Service": "bg-orange-700",
+    "Handyman Services": "bg-gray-500"
   };
 
   return (
     <motion.div
-      ref={cardRef}
       className={cardClasses}
-      style={{
-        x: cardX,
-        y: cardY,
-        rotateX: rotateX,
-        rotateY: rotateY,
-        transformPerspective: 1000
-      }}
       variants={cardVariants[variant] || cardVariants.default}
       initial="initial"
       animate="animate"
       whileHover={{
-        rotateX: [0, 5, 0],
-        rotateY: [0, 5, 0],
-        transition: { duration: 0.4, ease: "easeOut" }
+        y: -8,
+        scale: 1.02,
+        transition: { type: "spring", stiffness: 300, damping: 25 }
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Animated background gradient */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-pink-500/5"
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      />
+      {/* Hero Image Section */}
+      <div className="relative h-48 overflow-hidden">
+        <motion.img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        />
 
-      {/* Shimmer effect */}
-      <motion.div
-        className="absolute top-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-orange-400 to-transparent"
-        animate={{ width: isHovered ? "100%" : "0%" }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-      />
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40" />
 
-      {/* Hover particles */}
-      <AnimatePresence>
-        {isHovered && (
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 rounded-full bg-orange-400/30"
-                initial={{
-                  x: mousePosition.x - (cardRef.current?.getBoundingClientRect()?.left || 0),
-                  y: mousePosition.y - (cardRef.current?.getBoundingClientRect()?.top || 0),
-                  scale: 0,
-                  opacity: 0
-                }}
-                animate={{
-                  x: mousePosition.x - (cardRef.current?.getBoundingClientRect()?.left || 0) + Math.random() * 40 - 20,
-                  y: mousePosition.y - (cardRef.current?.getBoundingClientRect()?.top || 0) + Math.random() * 40 - 20,
-                  scale: [0, 1, 1, 0],
-                  opacity: [0, 1, 1, 0]
-                }}
-                transition={{
-                  duration: 1.5,
-                  delay: i * 0.1,
-                  ease: "easeOut"
-                }}
-              />
-            ))}
+        {/* Icon & Featured Badge */}
+        <div className="absolute top-4 left-4 flex items-center justify-between w-full pr-4">
+          <div className={`w-12 h-12 rounded-xl ${iconBgColors[service.title] || 'bg-blue-500'} flex items-center justify-center shadow-lg`}>
+            <span className="text-xl">{serviceIcons[service.title] || service.icon || "🛠️"}</span>
           </div>
-        )}
-      </AnimatePresence>
+          {service.featured && (
+            <div className="bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+              ★ FEATURED
+            </div>
+          )}
+        </div>
 
-      <div className={wrapperClasses}>
-        <div className="relative z-10">
-
-          {/* Service Icon */}
-          <div className="flex items-start justify-between mb-6">
-            <motion.div
-              className="relative"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              {/* Icon container with glow */}
-              <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 via-pink-500 to-red-500 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 overflow-hidden">
-                {/* Animated background */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-2xl"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                />
-
-                {/* Icon glow effect */}
-                <div className={`absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 ${
-                  isHovered ? 'opacity-20' : ''
-                }`}>
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-300 to-pink-300 blur-lg"></div>
-                </div>
-
-                {/* Main icon */}
-                <motion.span
-                  className="relative text-3xl font-bold text-white drop-shadow-lg z-10"
-                  animate={{
-                    scale: isHovered ? [1, 1.1, 1] : 1,
-                    rotate: isHovered ? [0, 5, -5, 0] : 0
-                  }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {service.icon}
-                </motion.span>
-              </div>
-
-              {/* Floating ring effect */}
-              {isHovered && (
-                <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-orange-400/30"
-                  initial={{ scale: 1, opacity: 1 }}
-                  animate={{ scale: 1.2, opacity: 0 }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                />
-              )}
-            </motion.div>
-
-            {/* Price badge */}
-            <motion.div
-              className="relative"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="px-4 py-2 bg-gradient-to-r from-orange-500 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg">
-                ₹{service.price}
-              </div>
-
-              {/* Price glow effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 blur-sm opacity-0"
-                animate={{ opacity: isHovered ? 0.6 : 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-          </div>
-
-          {/* Service content */}
-          <div className="space-y-4">
-            <motion.h3
-              className="text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300"
-              animate={{ scale: isHovered ? 1.02 : 1 }}
-              transition={{ duration: 0.2 }}
-            >
-              {service.title}
-            </motion.h3>
-
-            <motion.p
-              className="text-gray-600 leading-relaxed text-sm"
-              initial={{ opacity: 0.8 }}
-              whileHover={{ opacity: 1 }}
-            >
-              {service.short}
-            </motion.p>
-
-            {/* Included features preview */}
-            {service.includes && service.includes.length > 0 && (
-              <motion.div
-                className="mt-4 pt-4 border-t border-gray-100/50"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                <div className="flex flex-wrap gap-2">
-                  {service.includes.slice(0, 2).map((feature, featureIndex) => (
-                    <motion.span
-                      key={featureIndex}
-                      className="inline-flex items-center gap-1 px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-medium"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: featureIndex * 0.1 }}
-                    >
-                      <span className="text-green-500">✓</span>
-                      {feature.replace(/^- /, '').substring(0, 15)}...
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </div>
-
-          {/* Call to action */}
-          <div className="mt-6 pt-6 border-t border-gray-100/50">
-            <Link to={`/service/${service.id}`} className="block">
-              <motion.button
-                className="w-full relative overflow-hidden bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300"
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 20px 25px -5px rgba(251, 146, 60, 0.3)"
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {/* Button shimmer effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  animate={{
-                    x: isHovered ? ['-100%', '100%'] : '-100%'
-                  }}
-                  transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0 }}
-                />
-
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  <span>Book Now</span>
-                  <motion.svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    animate={{ x: isHovered ? 2 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </motion.svg>
-                </span>
-              </motion.button>
-            </Link>
-
-            {/* View details link */}
-            <motion.div
-              className="mt-3 text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isHovered ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Link
-                to={`/service/${service.id}`}
-                className="inline-flex items-center gap-1 text-gray-600 hover:text-orange-600 text-sm font-medium transition-colors duration-200"
-              >
-                <span>View Details</span>
-                <motion.svg
-                  className="w-3 h-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  animate={{ x: isHovered ? 2 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </motion.svg>
-              </Link>
-            </motion.div>
+        {/* Price Tag */}
+        <div className="absolute bottom-4 right-4">
+          <div className={`px-4 py-2 ${iconBgColors[service.title] || 'bg-blue-500'} text-white rounded-xl shadow-xl font-bold text-lg backdrop-blur-sm`}>
+            ₹{service.price}
           </div>
         </div>
       </div>
 
-      {/* Dynamic shadow */}
+      {/* Content Section */}
+      <div className="p-6 bg-white">
+
+        {/* Service Title & Subtitle */}
+        <div className="mb-4">
+          <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-200">
+            {service.title}
+          </h3>
+          <p className="text-gray-600 text-sm line-clamp-1">
+            {service.short}
+          </p>
+        </div>
+
+        {/* Service Description */}
+        <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">
+          {service.long}
+        </p>
+
+        {/* What's Included */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+            What's Included
+          </h4>
+          <div className="space-y-2">
+            {service.includes.slice(0, 3).map((item, idx) => (
+              <div key={idx} className="flex items-center text-xs text-gray-600">
+                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 flex-shrink-0"></div>
+                <span className="line-clamp-1">{item}</span>
+              </div>
+            ))}
+            {service.includes.length > 3 && (
+              <div className="text-xs text-gray-500 font-medium ml-3.5">
+                +{service.includes.length - 3} more services
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="space-y-3">
+
+          {/* Primary CTA */}
+          <Link to={`/service/${service.id}`} className="block">
+            <motion.button
+              className={`w-full py-3 px-4 ${iconBgColors[service.title] || 'bg-blue-500'} text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group`}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span>View Full Details</span>
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </motion.button>
+          </Link>
+
+          {/* Quick Book CTA */}
+          <motion.button
+            className="w-full py-2 px-4 bg-gray-100 text-gray-800 rounded-lg font-medium hover:bg-gray-200 transition-all duration-200 border border-gray-200"
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => window.location.href = `/booking/${service.id}`}
+          >
+            Quick Book Now
+          </motion.button>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className={`mt-4 h-1 bg-gradient-to-r ${iconBgColors[service.title]?.replace('bg-', 'from-') || 'from-blue-500'} to-transparent rounded-full`} />
+      </div>
+
+      {/* Hover Shadow Effect */}
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-black/5 pointer-events-none"
-        style={{
-          y: shadowY,
-          opacity: shadowOpacity,
-          filter: "blur(20px)"
-        }}
+        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
       />
     </motion.div>
   );
