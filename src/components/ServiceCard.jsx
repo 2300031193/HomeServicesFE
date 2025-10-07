@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const serviceIcons = {
   "Professional Plumbing": "🔧",
@@ -24,24 +23,11 @@ const serviceIcons = {
 };
 
 export default function ServiceCard({ service, index = 0, variant = "default" }) {
-  let cardClasses = "relative bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden group cursor-pointer";
+  let cardClasses = "bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden";
 
   if (variant === "featured") {
-    cardClasses += " shadow-2xl hover:shadow-3xl border-purple-200";
+    cardClasses += " shadow-lg border-indigo-200";
   }
-
-  const cardVariants = {
-    default: {
-      initial: { opacity: 0, y: 25 },
-      animate: { opacity: 1, y: 0 },
-      transition: { duration: 0.4, delay: index * 0.08 }
-    },
-    featured: {
-      initial: { opacity: 0, scale: 0.95 },
-      animate: { opacity: 1, scale: 1 },
-      transition: { duration: 0.5, delay: index * 0.1 }
-    }
-  };
 
   const iconBgColors = {
     "Professional Plumbing": "bg-blue-500",
@@ -49,7 +35,7 @@ export default function ServiceCard({ service, index = 0, variant = "default" })
     "Home Deep Cleaning": "bg-green-500",
     "AC & HVAC Service": "bg-cyan-500",
     "Professional Painting": "bg-pink-500",
-    "Carpentry & Woodwork": "bg-amber-600",
+    "Carpentry & Work": "bg-amber-600",
     "Smart Home Installation": "bg-purple-500",
     "Bathroom Renovation": "bg-teal-500",
     "Flooring Solutions": "bg-gray-600",
@@ -65,46 +51,33 @@ export default function ServiceCard({ service, index = 0, variant = "default" })
   };
 
   return (
-    <motion.div
-      className={cardClasses}
-      variants={cardVariants[variant] || cardVariants.default}
-      initial="initial"
-      animate="animate"
-      whileHover={{
-        y: -8,
-        scale: 1.02,
-        transition: { type: "spring", stiffness: 300, damping: 25 }
-      }}
-    >
+    <div className={cardClasses}>
       {/* Hero Image Section */}
       <div className="relative h-48 overflow-hidden">
-        <motion.img
+        <img
           src={service.image}
           alt={service.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="w-full h-full object-cover"
         />
 
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
         {/* Icon & Featured Badge */}
         <div className="absolute top-4 left-4 flex items-center justify-between w-full pr-4">
-          <div className={`w-12 h-12 rounded-xl ${iconBgColors[service.title] || 'bg-blue-500'} flex items-center justify-center shadow-lg`}>
-            <span className="text-xl">{serviceIcons[service.title] || service.icon || "🛠️"}</span>
+          <div className={`w-10 h-10 rounded-lg ${iconBgColors[service.title] || 'bg-blue-500'} flex items-center justify-center shadow-md`}>
+            <span className="text-lg">{serviceIcons[service.title] || service.icon || "🛠️"}</span>
           </div>
           {service.featured && (
-            <div className="bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-              ★ FEATURED
+            <div className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full shadow-md">
+              Featured
             </div>
           )}
         </div>
 
         {/* Price Tag */}
         <div className="absolute bottom-4 right-4">
-          <div className={`px-4 py-2 ${iconBgColors[service.title] || 'bg-blue-500'} text-white rounded-xl shadow-xl font-bold text-lg backdrop-blur-sm`}>
+          <div className={`px-3 py-1 ${iconBgColors[service.title] || 'bg-blue-500'} text-white rounded-lg shadow-md font-semibold text-base`}>
             ₹{service.price}
           </div>
         </div>
@@ -115,16 +88,16 @@ export default function ServiceCard({ service, index = 0, variant = "default" })
 
         {/* Service Title & Subtitle */}
         <div className="mb-4">
-          <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-200">
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
             {service.title}
           </h3>
-          <p className="text-gray-600 text-sm line-clamp-1">
+          <p className="text-gray-600 text-sm">
             {service.short}
           </p>
         </div>
 
         {/* Service Description */}
-        <p className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-3">
+        <p className="text-gray-700 text-sm leading-relaxed mb-4">
           {service.long}
         </p>
 
@@ -138,7 +111,7 @@ export default function ServiceCard({ service, index = 0, variant = "default" })
             {service.includes.slice(0, 3).map((item, idx) => (
               <div key={idx} className="flex items-center text-xs text-gray-600">
                 <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 flex-shrink-0"></div>
-                <span className="line-clamp-1">{item}</span>
+                <span>{item}</span>
               </div>
             ))}
             {service.includes.length > 3 && (
@@ -154,37 +127,23 @@ export default function ServiceCard({ service, index = 0, variant = "default" })
 
           {/* Primary CTA */}
           <Link to={`/service/${service.id}`} className="block">
-            <motion.button
-              className={`w-full py-3 px-4 ${iconBgColors[service.title] || 'bg-blue-500'} text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group`}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <button className={`w-full py-3 px-4 ${iconBgColors[service.title] || 'bg-blue-500'} text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-shadow duration-200 flex items-center justify-center gap-2`}>
               <span>View Full Details</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            </motion.button>
+            </button>
           </Link>
 
           {/* Quick Book CTA */}
-          <motion.button
-            className="w-full py-2 px-4 bg-gray-100 text-gray-800 rounded-lg font-medium hover:bg-gray-200 transition-all duration-200 border border-gray-200"
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.98 }}
+          <button
+            className="w-full py-2 px-4 bg-gray-100 text-gray-800 rounded-lg font-medium hover:bg-gray-200 transition-colors duration-200 border border-gray-200"
             onClick={() => window.location.href = `/booking/${service.id}`}
           >
             Quick Book Now
-          </motion.button>
+          </button>
         </div>
-
-        {/* Decorative Elements */}
-        <div className={`mt-4 h-1 bg-gradient-to-r ${iconBgColors[service.title]?.replace('bg-', 'from-') || 'from-blue-500'} to-transparent rounded-full`} />
       </div>
-
-      {/* Hover Shadow Effect */}
-      <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-      />
-    </motion.div>
+    </div>
   );
 }
