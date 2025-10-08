@@ -38,7 +38,7 @@ export default function Register() {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-br from-accent/10 to-orange-50 flex items-center justify-center px-4 py-8"
+      className="min-h-screen bg-gradient-to-br from-yellow-500/10 to-green-50 flex items-center justify-center px-4 py-8"
       initial={reduceMotion ? {} : { opacity: 0, scale: 0.95 }}
       animate={reduceMotion ? {} : { opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
@@ -59,7 +59,7 @@ export default function Register() {
               id="name"
               value={formData.name}
               onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent focus:outline-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 focus:outline-none"
               placeholder="John Doe"
               aria-describedby={errors.name ? "name-error" : undefined}
             />
@@ -75,7 +75,7 @@ export default function Register() {
               id="email"
               value={formData.email}
               onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent focus:outline-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 focus:outline-none"
               placeholder="your@email.com"
               aria-describedby={errors.email ? "email-error" : undefined}
             />
@@ -91,7 +91,7 @@ export default function Register() {
               id="phone"
               value={formData.phone}
               onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent focus:outline-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 focus:outline-none"
               placeholder="+91 98765 43210"
               aria-describedby={errors.phone ? "phone-error" : undefined}
             />
@@ -107,7 +107,7 @@ export default function Register() {
               id="password"
               value={formData.password}
               onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent focus:outline-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 focus:outline-none"
               placeholder="••••••••"
               aria-describedby={errors.password ? "password-error" : undefined}
             />
@@ -123,7 +123,7 @@ export default function Register() {
               id="confirmPassword"
               value={formData.confirmPassword}
               onChange={(e) => setFormData(prev => ({ ...prev, confirmPassword: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent focus:outline-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 focus:outline-none"
               placeholder="••••••••"
               aria-describedby={errors.confirmPassword ? "confirmPassword-error" : undefined}
             />
@@ -134,9 +134,9 @@ export default function Register() {
             <input type="checkbox" id="terms" className="rounded" required />
             <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
               I agree to the{" "}
-              <a href="#" className="text-accent hover:text-orange-600">Terms of Service</a>{" "}
+              <a href="#" className="text-yellow-500 hover:text-yellow-600">Terms of Service</a>{" "}
               and{" "}
-              <a href="#" className="text-accent hover:text-orange-600">Privacy Policy</a>
+              <a href="#" className="text-yellow-500 hover:text-yellow-600">Privacy Policy</a>
             </label>
           </div>
 
@@ -148,7 +148,7 @@ export default function Register() {
         <div className="mt-6 text-center">
           <p className="text-gray-600">
             Already have an account?{" "}
-            <Link to="/login" className="text-accent hover:text-orange-600 font-medium">
+            <Link to="/login" className="text-yellow-500 hover:text-yellow-600 font-medium">
               Sign in
             </Link>
           </p>

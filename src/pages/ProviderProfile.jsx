@@ -19,7 +19,7 @@ export default function ProviderProfile() {
     >
       <div className="bg-white rounded-xl shadow-lg overflow-hidden">
         {/* Profile Header */}
-        <div className="bg-gradient-to-r from-accent to-orange-400 text-white">
+        <div className="bg-gradient-to-r from-yellow-500 to-green-400 text-white">
           <div className="px-6 py-8 md:px-8 md:py-10">
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <img
@@ -80,17 +80,17 @@ export default function ProviderProfile() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <span className="font-medium">{service.name}</span>
-                    <span className="text-accent font-semibold">₹{service.price}</span>
+                    <span className="text-yellow-500 font-semibold">₹{service.price}</span>
                   </motion.div>
                 )) || (
                   <>
                     <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                       <span className="font-medium">Basic Service</span>
-                      <span className="text-accent font-semibold">₹{provider.price || 499}</span>
+                      <span className="text-yellow-500 font-semibold">₹{provider.price || 499}</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                       <span className="font-medium">Advanced Service</span>
-                      <span className="text-accent font-semibold">₹{provider.price ? provider.price + 200 : 699}</span>
+                      <span className="text-yellow-500 font-semibold">₹{provider.price ? provider.price + 200 : 699}</span>
                     </div>
                   </>
                 )}
@@ -125,7 +125,7 @@ export default function ProviderProfile() {
 
           {/* Contact/Booking CTA */}
           <motion.div
-            className="mt-8 bg-accent text-white rounded-xl p-6 text-center"
+            className="mt-8 bg-yellow-500 text-white rounded-xl p-6 text-center"
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
@@ -134,7 +134,7 @@ export default function ProviderProfile() {
               Professional service guaranteed. Get your job done right the first time.
             </p>
             <button
-              className="bg-white text-accent px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="bg-white text-yellow-500 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               aria-label={`Book service with ${provider.name}`}
             >
               Book Now

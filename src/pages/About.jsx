@@ -219,10 +219,10 @@ export default function About() {
   ];
 
   return (
-    <div ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-light-cream via-white to-light-yellow">
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-blue-50 to-transparent">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-light-yellow to-transparent">
         <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -230,13 +230,13 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-gray-900">
-              <span className="text-indigo-600">Our</span>{" "}
-              <span className="text-gray-900">Story</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-charcoal">
+              <span className="text-teal-dark">Our</span>{" "}
+              <span className="text-charcoal">Story</span>
             </h1>
 
             <motion.p
-              className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl text-charcoal max-w-4xl mx-auto leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -262,14 +262,14 @@ export default function About() {
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="bg-white rounded-xl p-6 shadow-lg border border-gray-100"
+                className="bg-light-cream rounded-xl p-6 shadow-lg border border-light-yellow"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-indigo-600 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-teal-dark mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-charcoal">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -285,15 +285,15 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Journey</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Our Journey</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-teal-dark to-light-yellow mx-auto rounded-full"></div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {storySteps.map((step, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 h-full"
+                className="bg-white rounded-xl p-8 shadow-lg border border-light-yellow h-full"
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
                 initial={{ opacity: 0, y: 30 }}
@@ -302,12 +302,12 @@ export default function About() {
                 transition={{ delay: index * 0.2 }}
               >
                 {/* Icon */}
-                <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center text-2xl mb-6 text-indigo-600">
+                <div className="w-16 h-16 bg-light-yellow rounded-xl flex items-center justify-center text-2xl mb-6 text-teal-dark">
                   {step.icon}
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.content}</p>
+                <h3 className="text-2xl font-bold text-charcoal mb-4">{step.title}</h3>
+                <p className="text-charcoal leading-relaxed">{step.content}</p>
               </motion.div>
             ))}
           </div>
@@ -315,7 +315,7 @@ export default function About() {
       </section>
 
       {/* Core Values Section */}
-      <section ref={valuesRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+      <section ref={valuesRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-light-cream">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -323,8 +323,8 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Core Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Our Core Values</h2>
+            <p className="text-xl text-charcoal max-w-3xl mx-auto">
               These principles guide everything we do, from how we select our professionals to how we serve our customers.
             </p>
           </motion.div>
@@ -333,7 +333,7 @@ export default function About() {
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl p-8 h-full shadow-lg border border-gray-100 group hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-xl p-8 h-full shadow-lg border border-light-yellow group hover:shadow-xl transition-all duration-300"
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
                 initial={{ opacity: 0, y: 30 }}
@@ -342,14 +342,14 @@ export default function About() {
                 transition={{ delay: index * 0.1 }}
               >
                 {/* Icon */}
-                <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center text-3xl mb-6 text-indigo-600">
+                <div className="w-16 h-16 bg-light-yellow rounded-xl flex items-center justify-center text-3xl mb-6 text-teal-dark">
                   {value.icon}
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-charcoal mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-charcoal leading-relaxed">
                   {value.description}
                 </p>
               </motion.div>
@@ -367,8 +367,8 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Meet Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">Meet Our Team</h2>
+            <p className="text-xl text-charcoal max-w-3xl mx-auto">
               The passionate individuals behind HomeServices, dedicated to revolutionizing home care.
             </p>
           </motion.div>
@@ -384,7 +384,7 @@ export default function About() {
                 transition={{ delay: index * 0.2 }}
               >
                 <div className="relative mb-6">
-                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-gray-100">
+                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-light-yellow">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -393,11 +393,11 @@ export default function About() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
+                <h3 className="text-xl font-bold text-charcoal mb-1">
                   {member.name}
                 </h3>
-                <p className="text-indigo-600 font-medium mb-2">{member.role}</p>
-                <p className="text-gray-600">{member.expertise}</p>
+                <p className="text-teal-dark font-medium mb-2">{member.role}</p>
+                <p className="text-charcoal">{member.expertise}</p>
               </motion.div>
             ))}
           </div>
@@ -405,7 +405,7 @@ export default function About() {
       </section>
 
       {/* Impact Section */}
-      <section ref={impactRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-indigo-600 text-white">
+      <section ref={impactRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-teal-dark to-charcoal text-white">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-12"
@@ -445,7 +445,7 @@ export default function About() {
             transition={{ delay: 0.5 }}
           >
             <Link to="/register">
-              <button className="bg-white text-indigo-600 px-12 py-4 rounded-xl font-bold text-xl shadow-lg hover:bg-gray-50 transition-colors duration-300">
+              <button className="bg-light-yellow text-charcoal px-12 py-4 rounded-xl font-bold text-xl shadow-lg hover:bg-opacity-80 transition-colors duration-300">
                 Start Your Journey Today
               </button>
             </Link>

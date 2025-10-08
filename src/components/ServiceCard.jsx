@@ -26,7 +26,7 @@ export default function ServiceCard({ service, index = 0, variant = "default" })
   let cardClasses = "bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden";
 
   if (variant === "featured") {
-    cardClasses += " shadow-lg border-indigo-200";
+    cardClasses += " shadow-lg border-blue-200";
   }
 
   const iconBgColors = {
@@ -35,7 +35,7 @@ export default function ServiceCard({ service, index = 0, variant = "default" })
     "Home Deep Cleaning": "bg-green-500",
     "AC & HVAC Service": "bg-cyan-500",
     "Professional Painting": "bg-pink-500",
-    "Carpentry & Work": "bg-amber-600",
+    "Carpentry & Woodwork": "bg-amber-600",
     "Smart Home Installation": "bg-purple-500",
     "Bathroom Renovation": "bg-teal-500",
     "Flooring Solutions": "bg-gray-600",
@@ -46,7 +46,7 @@ export default function ServiceCard({ service, index = 0, variant = "default" })
     "Window Installation & Repair": "bg-slate-500",
     "Security System Installation": "bg-red-600",
     "Pool & Spa Maintenance": "bg-blue-600",
-    "Chimney & Fireplace Service": "bg-orange-700",
+    "Chimney & Fireplace Service": "bg-yellow-700",
     "Handyman Services": "bg-gray-500"
   };
 

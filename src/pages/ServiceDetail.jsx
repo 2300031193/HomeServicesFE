@@ -31,7 +31,7 @@ export default function ServiceDetail() {
     >
       <article className="bg-white rounded-xl shadow-lg overflow-hidden" role="main" aria-labelledby="service-title">
         {/* Header Section */}
-        <div className="bg-gradient-to-r from-accent to-orange-400 text-white">
+        <div className="bg-gradient-to-r from-yellow-500 to-green-400 text-white">
           <div className="px-6 py-8">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-20 h-20 bg-white/20 rounded-xl flex items-center justify-center text-4xl">
@@ -70,21 +70,21 @@ export default function ServiceDetail() {
                       animate={reduceMotion ? {} : { opacity: 1, x: 0 }}
                       transition={{ delay: idx * 0.1 }}
                     >
-                      <span className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-yellow-500 rounded-full flex-shrink-0"></span>
                       <span>{item}</span>
                     </motion.li>
                   )) || (
                     <>
                       <li className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full"></span>
+                        <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
                         <span>Professional assessment</span>
                       </li>
                       <li className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full"></span>
+                        <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
                         <span>Quality parts & materials</span>
                       </li>
                       <li className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full"></span>
+                        <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
                         <span>Complete installation</span>
                       </li>
                     </>
@@ -139,7 +139,7 @@ export default function ServiceDetail() {
                 <p className="text-gray-600 mb-4">
                   Not sure if this service is right for you? We can help clarify details and recommendations.
                 </p>
-                <Link to="/contact" className="text-accent hover:text-orange-600 font-medium">
+                <Link to="/contact" className="text-yellow-500 hover:text-yellow-600 font-medium">
                   Contact us →
                 </Link>
               </motion.div>

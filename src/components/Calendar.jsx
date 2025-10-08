@@ -93,14 +93,13 @@ export default function Calendar({ selectedDate, onDateSelect, availableDates = 
             disabled={!isDateAvailable(day)}
             className={`p-2 text-sm rounded-md transition-colors ${
               isDateSelected(day)
-                ? 'bg-accent text-white'
+                ? 'bg-yellow-500 text-white'
                 : isDateToday(day)
                 ? 'bg-blue-100 text-blue-600'
                 : isDateAvailable(day)
                 ? 'hover:bg-gray-100'
                 : 'text-gray-400 cursor-not-allowed'
             }`}
-            aria-label={`Select ${currentMonth.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`}
           >
             {day}
           </button>
@@ -113,7 +112,7 @@ export default function Calendar({ selectedDate, onDateSelect, availableDates = 
           <span>Today</span>
         </div>
         <div className="flex items-center gap-2 mt-1">
-          <div className="w-3 h-3 bg-accent rounded" />
+          <div className="w-3 h-3 bg-yellow-500 rounded" />
           <span>Selected</span>
         </div>
       </div>

@@ -167,40 +167,40 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-light-cream via-white to-light-yellow overflow-hidden"
       >
         {/* Background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="floating absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-indigo-200 to-blue-200 rounded-full opacity-20 blur-xl"></div>
-          <div className="floating absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full opacity-20 blur-xl"></div>
-          <div className="floating absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-20 blur-xl"></div>
-          <div className="floating absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-cyan-200 to-blue-200 rounded-full opacity-20 blur-xl"></div>
+          <div className="floating absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-teal-dark to-light-yellow rounded-full opacity-20 blur-xl"></div>
+          <div className="floating absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-light-yellow to-teal-dark rounded-full opacity-20 blur-xl"></div>
+          <div className="floating absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-light-yellow to-teal-dark rounded-full opacity-20 blur-xl"></div>
+          <div className="floating absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-teal-dark to-light-yellow rounded-full opacity-20 blur-xl"></div>
         </div>
 
         <motion.div
           className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
           style={{ scale: springScale, opacity: springOpacity }}
         >
-          <div className="hero-gradient absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 rounded-3xl blur-3xl scale-110"></div>
+          <div className="hero-gradient absolute inset-0 bg-gradient-to-r from-teal-dark/10 to-light-yellow/10 rounded-3xl blur-3xl scale-110"></div>
 
           <div className="relative z-20">
             <motion.h1
-              className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+              className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold text-charcoal mb-6 leading-tight"
             >
               Professional Home Services
-              <span className="block bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-teal-dark to-light-yellow bg-clip-text text-transparent">
                 At Your Doorstep
               </span>
             </motion.h1>
 
-            <p className="hero-subtitle text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="hero-subtitle text-lg md:text-xl text-charcoal mb-8 max-w-3xl mx-auto leading-relaxed">
               Connect with certified professionals for all your home service needs.
               From plumbing to electrical repairs, we've got you covered with trusted experts in your area.
             </p>
 
             <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
               <AnimatedButton
-                className="px-8 py-4 text-lg shadow-xl bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 text-lg shadow-xl bg-teal-dark text-white hover:bg-opacity-80 hover:shadow-2xl transition-all duration-300"
                 onClick={navigateToServices}
                 ariaLabel="Browse our services"
               >
@@ -208,7 +208,7 @@ export default function Home() {
               </AnimatedButton>
 
               <AnimatedButton
-                className="px-8 py-4 text-lg shadow-xl bg-white text-gray-900 hover:bg-gray-50 border-2 border-gray-200 hover:border-indigo-300 hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 text-lg shadow-xl bg-light-yellow text-charcoal hover:bg-opacity-80 border-2 border-light-yellow hover:border-teal-dark hover:shadow-2xl transition-all duration-300"
                 onClick={() => scrollToSection('features')}
                 ariaLabel="Learn more about our services"
               >
@@ -223,14 +223,14 @@ export default function Home() {
       <section
         id="features"
         ref={featuresRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-light-cream"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-6">
               Why Choose Us?
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-charcoal max-w-3xl mx-auto">
               We connect you with experienced, certified professionals for all your home service needs.
               Get quality work done on time, every time.
             </p>
@@ -276,8 +276,8 @@ export default function Home() {
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-charcoal mb-3">{feature.title}</h3>
+                <p className="text-charcoal">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -288,10 +288,10 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-6">
               Popular Services
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-charcoal max-w-3xl mx-auto">
               Explore our most popular home services. Professional help for every aspect of your home maintenance.
             </p>
           </div>
@@ -310,7 +310,7 @@ export default function Home() {
 
           <div className="text-center">
             <AnimatedButton
-              className="px-8 py-4 text-lg shadow-xl bg-orange-500 text-white hover:bg-orange-600 hover:shadow-2xl transition-all duration-300"
+              className="px-8 py-4 text-lg shadow-xl bg-light-yellow text-charcoal hover:bg-opacity-80 hover:shadow-2xl transition-all duration-300"
               onClick={navigateToServices}
               ariaLabel="View all services"
             >
@@ -323,7 +323,7 @@ export default function Home() {
       {/* Stats Section */}
       <section
         ref={statsRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-indigo-600 to-blue-600"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-teal-dark to-charcoal"
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -357,14 +357,14 @@ export default function Home() {
       {/* Testimonials */}
       <section
         ref={testimonialsRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-light-cream"
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-6">
               What Our Customers Say
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-charcoal max-w-3xl mx-auto">
               Don't just take our word for it. Here's what real customers have to say about our services.
             </p>
           </div>
@@ -401,15 +401,15 @@ export default function Home() {
               >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">⭐</span>
+                    <span key={i} className="text-light-yellow">⭐</span>
                   ))}
                 </div>
-                <blockquote className="text-gray-700 mb-4 italic">
+                <blockquote className="text-charcoal mb-4 italic">
                   "{testimonial.quote}"
                 </blockquote>
                 <div>
-                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.location}</div>
+                  <div className="font-semibold text-charcoal">{testimonial.author}</div>
+                  <div className="text-sm text-charcoal">{testimonial.location}</div>
                 </div>
               </motion.div>
             ))}
@@ -418,7 +418,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-charcoal to-teal-dark text-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -429,14 +429,14 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Get Your Home Services Done?
             </h2>
-            <p className="text-lg mb-8 text-gray-300">
+            <p className="text-lg mb-8 text-light-cream">
               Join thousands of satisfied customers who trust us with their home maintenance needs.
               Professional, reliable, and hassle-free.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <AnimatedButton
-                className="px-8 py-4 text-lg shadow-xl bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 text-lg shadow-xl bg-teal-dark text-white hover:bg-opacity-80 hover:shadow-2xl transition-all duration-300"
                 onClick={navigateToServices}
                 ariaLabel="Start booking services"
               >
@@ -444,7 +444,7 @@ export default function Home() {
               </AnimatedButton>
 
               <AnimatedButton
-                className="px-8 py-4 text-lg shadow-xl bg-white text-gray-900 hover:bg-gray-50 border-2 border-gray-200 hover:border-indigo-300 hover:shadow-2xl transition-all duration-300"
+                className="px-8 py-4 text-lg shadow-xl bg-light-yellow text-charcoal hover:bg-opacity-80 border-2 border-light-yellow hover:border-teal-dark hover:shadow-2xl transition-all duration-300"
                 onClick={() => navigate('/contact')}
                 ariaLabel="Contact us for more information"
               >

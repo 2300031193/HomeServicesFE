@@ -108,7 +108,7 @@ export default function BookingForm({ service, onSubmit, onCancel }) {
           {Array.from({ length: totalSteps }, (_, i) => (
             <div
               key={i}
-              className={`h-2 w-12 rounded-full ${i + 1 <= step ? 'bg-accent' : 'bg-gray-200'}`}
+              className={`h-2 w-12 rounded-full ${i + 1 <= step ? 'bg-yellow-500' : 'bg-gray-200'}`}
             />
           ))}
         </div>

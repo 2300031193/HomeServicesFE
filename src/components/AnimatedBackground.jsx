@@ -98,10 +98,10 @@ const AnimatedBackground = ({
 
   const Particle = ({ particle, index }) => {
     const colorMap = {
-      orange: 'from-orange-400 to-pink-500',
-      pink: 'from-pink-400 to-purple-500',
-      blue: 'from-blue-400 to-cyan-500',
-      purple: 'from-purple-400 to-pink-500'
+      orange: 'from-light-yellow to-teal-dark',
+      pink: 'from-light-yellow to-charcoal',
+      blue: 'from-teal-dark to-charcoal',
+      purple: 'from-charcoal to-light-yellow'
     };
 
     const shapeClasses = {
@@ -133,7 +133,7 @@ const AnimatedBackground = ({
       <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: -1 }}>
         {/* Large floating circles */}
         <motion.div
-          className="absolute top-20 left-20 w-96 h-96 border border-orange-200/20 rounded-full"
+          className="absolute top-20 left-20 w-96 h-96 border border-yellow-200/20 rounded-full"
           animate={{
             scale: [1, 1.1, 1],
             rotate: [0, 180, 360]
@@ -146,7 +146,7 @@ const AnimatedBackground = ({
         />
 
         <motion.div
-          className="absolute top-60 right-32 w-80 h-80 border border-pink-200/20 rounded-full"
+          className="absolute top-60 right-32 w-80 h-80 border border-green-200/20 rounded-full"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, -180, -360]
@@ -173,7 +173,7 @@ const AnimatedBackground = ({
         />
 
         <motion.div
-          className="absolute bottom-20 right-20 w-48 h-48 border border-purple-200/20 transform rotate-45"
+          className="absolute bottom-20 right-20 w-48 h-48 border border-yellow-200/20 transform rotate-45"
           animate={{
             rotate: [45, 135, 225, 315, 405],
             scale: [1, 1.2, 1]
@@ -193,7 +193,7 @@ const AnimatedBackground = ({
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Dynamic gradient orbs that follow mouse */}
         <motion.div
-          className="absolute w-96 h-96 bg-gradient-to-r from-orange-400/10 to-pink-500/10 rounded-full blur-3xl"
+          className="absolute w-96 h-96 bg-gradient-to-r from-yellow-400/10 to-green-500/10 rounded-full blur-3xl"
           style={{
             left: mouseX,
             top: mouseY,
@@ -203,7 +203,7 @@ const AnimatedBackground = ({
         />
 
         <motion.div
-          className="absolute w-64 h-64 bg-gradient-to-r from-blue-400/8 to-purple-500/8 rounded-full blur-3xl"
+          className="absolute w-64 h-64 bg-gradient-to-r from-blue-400/8 to-green-500/8 rounded-full blur-3xl"
           style={{
             right: mouseX,
             bottom: mouseY,
@@ -214,7 +214,7 @@ const AnimatedBackground = ({
 
         {/* Static larger orbs */}
         <motion.div
-          className="absolute top-10 left-10 w-[600px] h-[600px] bg-gradient-to-br from-orange-300/5 to-transparent rounded-full blur-3xl"
+          className="absolute top-10 left-10 w-[600px] h-[600px] bg-gradient-to-br from-yellow-300/5 to-transparent rounded-full blur-3xl"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.5, 0.8, 0.5]
@@ -227,7 +227,7 @@ const AnimatedBackground = ({
         />
 
         <motion.div
-          className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-bl from-pink-300/5 to-transparent rounded-full blur-3xl"
+          className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-bl from-green-300/5 to-transparent rounded-full blur-3xl"
           animate={{
             scale: [1.1, 1, 1.1],
             opacity: [0.3, 0.6, 0.3]
@@ -253,7 +253,7 @@ const AnimatedBackground = ({
               <path
                 d="M 40 0 L 0 0 0 40"
                 fill="none"
-                stroke="rgba(251, 146, 60, 0.1)"
+                stroke="rgba(245, 158, 11, 0.1)"
                 strokeWidth="1"
               />
             </pattern>
@@ -272,7 +272,7 @@ const AnimatedBackground = ({
             <motion.div
               className="absolute inset-0"
               style={{
-                background: `linear-gradient(${bgGradient}deg, rgba(251, 146, 60, ${bgOpacity}) 0%, rgba(219, 39, 119, ${bgOpacity}) 50%, rgba(59, 130, 246, ${bgOpacity}) 100%)`,
+                background: `linear-gradient(${bgGradient}deg, rgba(245, 158, 11, ${bgOpacity}) 0%, rgba(16, 185, 129, ${bgOpacity}) 50%, rgba(59, 130, 246, ${bgOpacity}) 100%)`,
                 opacity: 0.1
               }}
             />
@@ -288,7 +288,7 @@ const AnimatedBackground = ({
       case "minimal":
         return (
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-white to-pink-50/30"
+            className="absolute inset-0 bg-gradient-to-br from-yellow-50/30 via-white to-green-50/30"
             animate={{
               backgroundPosition: ['0% 0%', '100% 100%']
             }}
@@ -314,10 +314,10 @@ const AnimatedBackground = ({
                   style={{ zIndex: -1 }}
                   animate={{
                     background: [
-                      "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(251, 146, 60, 0.1), transparent 40%)",
-                      "radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(236, 72, 153, 0.08), transparent 50%)",
+                      "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(245, 158, 11, 0.1), transparent 40%)",
+                      "radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(16, 185, 129, 0.08), transparent 50%)",
                       "radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.05), transparent 30%)",
-                      "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(251, 146, 60, 0.1), transparent 40%)"
+                      "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(245, 158, 11, 0.1), transparent 40%)"
                     ]
                   }}
                   transition={{
@@ -331,28 +331,28 @@ const AnimatedBackground = ({
 
             {/* Subtle animated borders */}
             <motion.div
-              className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-orange-400 via-pink-500 to-blue-500"
+              className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-green-500 to-blue-500"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 2, delay: 0.5 }}
             />
 
             <motion.div
-              className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-pink-500 to-orange-400"
+              className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-green-500 to-yellow-400"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 2, delay: 0.8 }}
             />
 
             <motion.div
-              className="absolute top-0 left-0 h-full w-0.5 bg-gradient-to-b from-orange-400 via-pink-500 to-blue-500"
+              className="absolute top-0 left-0 h-full w-0.5 bg-gradient-to-b from-yellow-400 via-green-500 to-blue-500"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ duration: 2, delay: 1.1 }}
             />
 
             <motion.div
-              className="absolute top-0 right-0 h-full w-0.5 bg-gradient-to-b from-blue-500 via-pink-500 to-orange-400"
+              className="absolute top-0 right-0 h-full w-0.5 bg-gradient-to-b from-blue-500 via-green-500 to-yellow-400"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ duration: 2, delay: 1.4 }}

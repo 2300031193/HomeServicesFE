@@ -3,9 +3,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: "#FF6A3D", // sunset orange
-        soft: "#F8F6F4",
-        deep: "#0F1724"
+        'light-cream': '#FAF8F1',
+        'light-yellow': '#FAEAB1',
+        'teal-dark': '#34656D',
+        'charcoal': '#334443',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

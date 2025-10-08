@@ -325,15 +325,15 @@ export default function Booking() {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 overflow-hidden">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
       {/* Animated Background Elements */}
       <div ref={backgroundRef} className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="floating-element absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-indigo-200 to-blue-200 rounded-full opacity-20 blur-xl"></div>
-        <div className="floating-element absolute top-40 right-32 w-24 h-24 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full opacity-15 blur-lg"></div>
-        <div className="floating-element absolute bottom-32 left-32 w-40 h-40 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-10 blur-2xl"></div>
-        <div className="floating-element absolute bottom-20 right-20 w-28 h-28 bg-gradient-to-br from-cyan-200 to-blue-200 rounded-full opacity-15 blur-lg"></div>
-        <div className="floating-element absolute top-96 right-16 w-20 h-20 bg-gradient-to-br from-indigo-300 to-blue-300 rounded-full opacity-25 blur-md"></div>
-        <div className="floating-element absolute bottom-96 left-96 w-36 h-36 bg-gradient-to-br from-blue-300 to-indigo-300 rounded-full opacity-20 blur-2xl"></div>
+        <div className="floating-element absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-200 to-green-200 rounded-full opacity-20 blur-xl"></div>
+        <div className="floating-element absolute top-40 right-32 w-24 h-24 bg-gradient-to-br from-green-200 to-cyan-200 rounded-full opacity-15 blur-lg"></div>
+        <div className="floating-element absolute bottom-32 left-32 w-40 h-40 bg-gradient-to-br from-green-200 to-blue-200 rounded-full opacity-10 blur-2xl"></div>
+        <div className="floating-element absolute bottom-20 right-20 w-28 h-28 bg-gradient-to-br from-cyan-200 to-green-200 rounded-full opacity-15 blur-lg"></div>
+        <div className="floating-element absolute top-96 right-16 w-20 h-20 bg-gradient-to-br from-blue-300 to-green-300 rounded-full opacity-25 blur-md"></div>
+        <div className="floating-element absolute bottom-96 left-96 w-36 h-36 bg-gradient-to-br from-green-300 to-blue-300 rounded-full opacity-20 blur-2xl"></div>
       </div>
 
       {/* Hero Section */}
@@ -349,12 +349,12 @@ export default function Booking() {
             animate={{ opacity: animationComplete ? 1 : 0, y: animationComplete ? 0 : 50 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-indigo-100 rounded-full mb-8">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-8">
               <span className="text-3xl">{service?.icon}</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Book Your
-              <span className="block bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
                 {service?.title}
               </span>
             </h1>
@@ -411,7 +411,7 @@ export default function Booking() {
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-100 to-blue-100 rounded-2xl mb-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-green-100 rounded-2xl mb-4">
                       <span className="text-2xl">{service?.icon}</span>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{service?.title}</h3>
@@ -419,8 +419,8 @@ export default function Booking() {
                   </div>
 
                   <div className="space-y-6">
-                    <div className="text-center p-6 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl">
-                      <p className="text-3xl font-bold text-indigo-600 mb-1">₹{service?.price}</p>
+                    <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-xl">
+                      <p className="text-3xl font-bold text-blue-600 mb-1">₹{service?.price}</p>
                       <p className="text-sm text-gray-600">Service fee (incl. taxes)</p>
                     </div>
 

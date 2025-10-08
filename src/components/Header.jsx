@@ -24,17 +24,17 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-light-cream shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-teal-dark rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">HS</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg font-semibold text-gray-900">HomeServices</h1>
+              <h1 className="text-lg font-semibold text-charcoal">HomeServices</h1>
             </div>
           </Link>
 
@@ -46,13 +46,13 @@ export default function Header() {
                 to={item.href}
                 className={`relative px-3 py-2 text-sm font-medium transition-colors ${
                   isActive(item.href)
-                    ? 'text-indigo-600'
-                    : 'text-gray-700 hover:text-indigo-600'
+                    ? 'text-teal-dark'
+                    : 'text-charcoal hover:text-teal-dark'
                 }`}
               >
                 {item.name}
                 {isActive(item.href) && (
-                  <span className="absolute bottom-0 left-0 h-0.5 w-full bg-indigo-600 rounded-full"></span>
+                  <span className="absolute bottom-0 left-0 h-0.5 w-full bg-teal-dark rounded-full"></span>
                 )}
               </Link>
             ))}
@@ -62,13 +62,13 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/login"
-              className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors"
+              className="text-charcoal hover:text-teal-dark px-3 py-2 text-sm font-medium transition-colors"
             >
               Sign In
             </Link>
             <Link
               to="/dashboard"
-              className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors"
+              className="bg-teal-dark text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-80 transition-colors"
             >
               Dashboard
             </Link>
@@ -78,7 +78,7 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
               aria-expanded={mobileMenu}
             >
               <span className="sr-only">Open main menu</span>
@@ -109,7 +109,7 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`${mobileMenu ? 'block' : 'hidden'} md:hidden border-t border-gray-200 bg-white`}>
+      <div className={`${mobileMenu ? 'block' : 'hidden'} md:hidden border-t border-gray-200 bg-light-cream`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {navigation.map((item) => (
             <Link
@@ -117,8 +117,8 @@ export default function Header() {
               to={item.href}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 isActive(item.href)
-                  ? 'text-indigo-600 bg-indigo-50'
-                  : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50'
+                  ? 'text-teal-dark bg-light-yellow'
+                  : 'text-charcoal hover:text-teal-dark hover:bg-light-yellow'
               } transition-colors`}
               onClick={() => setMobileMenu(false)}
             >
@@ -129,14 +129,14 @@ export default function Header() {
           <div className="border-t border-gray-200 pt-4 mt-4 space-y-2">
             <Link
               to="/login"
-              className="block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 transition-colors"
+              className="block px-3 py-2 rounded-md font-medium text-charcoal hover:text-teal-dark hover:bg-light-yellow transition-colors"
               onClick={() => setMobileMenu(false)}
             >
               Sign In
             </Link>
             <Link
               to="/dashboard"
-              className="block px-3 py-2 rounded-md font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition-colors text-center"
+              className="block px-3 py-2 rounded-md font-medium text-white bg-teal-dark hover:bg-opacity-80 transition-colors text-center"
               onClick={() => setMobileMenu(false)}
             >
               Dashboard

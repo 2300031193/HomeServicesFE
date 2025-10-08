@@ -28,7 +28,7 @@ export default function Login() {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-br from-accent/10 to-orange-50 flex items-center justify-center px-4"
+      className="min-h-screen bg-gradient-to-br from-yellow-500/10 to-green-50 flex items-center justify-center px-4"
       initial={reduceMotion ? {} : { opacity: 0, scale: 0.95 }}
       animate={reduceMotion ? {} : { opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
@@ -77,7 +77,7 @@ export default function Login() {
               <input type="checkbox" className="rounded" />
               <span className="ml-2">Remember me</span>
             </label>
-            <a href="#" className="text-accent hover:text-orange-600">Forgot password?</a>
+            <a href="#" className="text-yellow-500 hover:text-yellow-600">Forgot password?</a>
           </div>
 
           <AnimatedButton type="submit" className="w-full">
@@ -88,7 +88,7 @@ export default function Login() {
         <div className="mt-6 text-center">
           <p className="text-gray-600">
             Don't have an account?{" "}
-            <Link to="/register" className="text-accent hover:text-orange-600 font-medium">
+            <Link to="/register" className="text-yellow-500 hover:text-yellow-600 font-medium">
               Sign up
             </Link>
           </p>

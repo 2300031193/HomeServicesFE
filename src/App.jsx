@@ -20,8 +20,7 @@ function AppContent() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      {/* Add top padding to account for fixed header */}
-      <main className="pt-16 flex-1">
+      <main className="flex-1">
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
