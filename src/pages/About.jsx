@@ -295,11 +295,7 @@ export default function About() {
                 key={index}
                 className="bg-white rounded-xl p-8 shadow-lg border border-light-yellow h-full"
                 whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+                transition={{ duration: 0.3, delay: index * 0.2 }}
               >
                 {/* Icon */}
                 <div className="w-16 h-16 bg-light-yellow rounded-xl flex items-center justify-center text-2xl mb-6 text-teal-dark">
@@ -335,11 +331,7 @@ export default function About() {
                 key={index}
                 className="bg-white rounded-xl p-8 h-full shadow-lg border border-light-yellow group hover:shadow-xl transition-all duration-300"
                 whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 {/* Icon */}
                 <div className="w-16 h-16 bg-light-yellow rounded-xl flex items-center justify-center text-3xl mb-6 text-teal-dark">
@@ -426,11 +418,7 @@ export default function About() {
                 key={index}
                 className="bg-white/10 backdrop-blur-xl rounded-xl p-8 border border-white/20"
                 whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+                transition={{ duration: 0.2, delay: index * 0.2 }}
               >
                 <h3 className="text-xl font-bold mb-4">{item.title}</h3>
                 <p className="text-white/90">{item.content}</p>

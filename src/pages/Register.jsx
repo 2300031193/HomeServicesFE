@@ -27,8 +27,19 @@ export default function Register() {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      alert("Account created successfully! (Mock)");
-      navigate("/dashboard");
+      // Store user data in localStorage
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const newUser = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        isAdmin: false,
+      };
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert("Account created successfully!");
+      navigate("/login");
     } else {
       setErrors(newErrors);
     }

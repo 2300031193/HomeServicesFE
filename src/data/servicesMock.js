@@ -27,7 +27,7 @@ const services = [
     price: 599,
     icon: "⚡",
     category: "Electrical",
-    image: "https://img.freepik.com/free-photo/electrician-fixing-wires_23-2148747546.jpg?w=996&t=st=1715268635~exp=1715269235~hmac=5a2b533f0d29a03c3b2b159f7f8e7b8c8e7e8c8c8e7e8c8c8e7e8c8c8e7e8c8c",
+    image: "https://img.freepik.com/free-photo/electrician-working-with-wires_23-2148662651.jpg",
     gradient: "from-yellow-400 to-orange-500",
     featured: true,
     includes: [
@@ -46,7 +46,7 @@ const services = [
     price: 999,
     icon: "🧹",
     category: "Cleaning",
-    image: "https://img.freepik.com/free-photo/man-cleaning-his-home_23-2148820744.jpg?w=996&t=st=1715268670~exp=1715269270~hmac=0f2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b",
+    image: "https://img.freepik.com/free-photo/young-woman-cleaning-kitchen-with-rag_23-2148820761.jpg",
     gradient: "from-green-400 to-emerald-500",
     featured: true,
     includes: [
@@ -103,7 +103,7 @@ const services = [
     price: 799,
     icon: "🔨",
     category: "Carpentry",
-    image: "https://img.freepik.com/free-photo/carpenter-working-with-wood_23-2148820765.jpg?w=996&t=st=1715268761~exp=1715269361~hmac=d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2",
+    image: "https://img.freepik.com/free-photo/carpenter-using-circular-saw_23-2148820771.jpg",
     gradient: "from-amber-600 to-yellow-600",
     featured: true,
     includes: [

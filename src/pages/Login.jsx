@@ -33,12 +33,27 @@ export default function Login() {
     // Mock login delay
     setTimeout(() => {
       const isAdminUser = formData.email === "admin@example.com" && formData.password === "admin";
-      login(isAdminUser);
 
       if (isAdminUser) {
+        const adminUser = {
+          name: "Admin",
+          email: formData.email,
+          isAdmin: true,
+        };
+        login(adminUser);
         navigate("/admin/dashboard");
       } else {
-        navigate("/dashboard");
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(
+          (user) => user.email === formData.email && user.password === formData.password
+        );
+
+        if (user) {
+          login(user);
+          navigate("/dashboard");
+        } else {
+          setErrors({ general: "Invalid email or password" });
+        }
       }
       setIsSubmitting(false);
     }, 1500);
@@ -122,11 +137,12 @@ export default function Login() {
 
           <AnimatedButton 
             type="submit" 
-            className={`w-full font-bold py-3 transition-all duration-500 ${isAdmin ? "bg-charcoal text-white hover:bg-teal-dark" : ""}`}
+            className={`w-full font-bold py-3 transition-all duration-500 ${isAdmin ? "bg-charcoal text-white hover:bg-teal-dark" : "bg-teal-dark text-white hover:bg-opacity-80"}`}
             isSubmitting={isSubmitting}
           >
             {isSubmitting ? "Signing In..." : "Sign In"}
           </AnimatedButton>
+          {errors.general && <p className="mt-2 text-sm text-red-600 text-center">{errors.general}</p>}
         </form>
 
         <div className="mt-6 text-center">

@@ -134,7 +134,7 @@ export default function ProviderProfile() {
               Professional service guaranteed. Get your job done right the first time.
             </p>
             <button
-              className="bg-white text-yellow-500 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="bg-white text-charcoal px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               aria-label={`Book service with ${provider.name}`}
             >
               Book Now

@@ -16,6 +16,8 @@ import Contact from "./pages/Contact";
 import AdminDashboard from "./pages/AdminDashboard";
 
 import { AuthProvider } from "./contexts/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AdminProtectedRoute from "./components/AdminProtectedRoute";
 
 import AdminLayout from "./pages/admin/AdminLayout";
 import ServiceManagement from "./pages/admin/ServiceManagement";
@@ -37,12 +39,26 @@ function AppContent() {
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/provider/:id" element={<ProviderProfile />} />
             <Route path="/booking/:serviceId" element={<Booking />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<AdminLayout />}>
+            <Route
+              path="/admin"
+              element={
+                <AdminProtectedRoute>
+                  <AdminLayout />
+                </AdminProtectedRoute>
+              }
+            >
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="services" element={<ServiceManagement />} />
               <Route path="users" element={<UserManagement />} />
