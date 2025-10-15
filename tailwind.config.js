@@ -7,6 +7,7 @@ export default {
         'light-yellow': '#FAEAB1',
         'teal-dark': '#34656D',
         'charcoal': '#334443',
+        'accent': '#FBBF24',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
