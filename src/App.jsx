@@ -13,6 +13,15 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import AdminDashboard from "./pages/AdminDashboard";
+
+import { AuthProvider } from "./contexts/AuthContext";
+
+import AdminLayout from "./pages/admin/AdminLayout";
+import ServiceManagement from "./pages/admin/ServiceManagement";
+import UserManagement from "./pages/admin/UserManagement";
+import BookingManagement from "./pages/admin/BookingManagement";
+import Settings from "./pages/admin/Settings";
 
 function AppContent() {
   const location = useLocation();
@@ -33,6 +42,13 @@ function AppContent() {
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="services" element={<ServiceManagement />} />
+              <Route path="users" element={<UserManagement />} />
+              <Route path="bookings" element={<BookingManagement />} />
+              <Route path="settings" element={<Settings />} />
+            </Route>
           </Routes>
         </AnimatePresence>
       </main>
@@ -44,7 +60,9 @@ function AppContent() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AppContent />
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
     </BrowserRouter>
   );
 }

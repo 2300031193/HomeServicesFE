@@ -1,3 +1,4 @@
+
 const services = [
   {
     id: 1,
@@ -7,7 +8,7 @@ const services = [
     price: 499,
     icon: "🔧",
     category: "Plumbing",
-    image: "https://images.unsplash.com/photo-1621905251189-0052d07ae05c?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/plumber-at-work-in-a-bathroom-plumbing-repair-service-assemble-and-install-concept_183219-2323.jpg?w=996&t=st=1715268595~exp=1715269195~hmac=11a16c4e766b92de358a21db55467a94378af662c69128a4b75a505e3f87c11c",
     gradient: "from-blue-500 to-cyan-500",
     featured: true,
     includes: [
@@ -26,7 +27,7 @@ const services = [
     price: 599,
     icon: "⚡",
     category: "Electrical",
-    image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab0b?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/electrician-fixing-wires_23-2148747546.jpg?w=996&t=st=1715268635~exp=1715269235~hmac=5a2b533f0d29a03c3b2b159f7f8e7b8c8e7e8c8c8e7e8c8c8e7e8c8c8e7e8c8c",
     gradient: "from-yellow-400 to-orange-500",
     featured: true,
     includes: [
@@ -45,7 +46,7 @@ const services = [
     price: 999,
     icon: "🧹",
     category: "Cleaning",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/man-cleaning-his-home_23-2148820744.jpg?w=996&t=st=1715268670~exp=1715269270~hmac=0f2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b",
     gradient: "from-green-400 to-emerald-500",
     featured: true,
     includes: [
@@ -64,7 +65,7 @@ const services = [
     price: 1299,
     icon: "❄️",
     category: "HVAC",
-    image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/technician-service-using-measuring-equipment-checking-air-conditioner_33799-2839.jpg?w=996&t=st=1715268701~exp=1715269301~hmac=b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
     gradient: "from-cyan-400 to-blue-500",
     featured: true,
     includes: [
@@ -83,7 +84,7 @@ const services = [
     price: 1499,
     icon: "🎨",
     category: "Painting",
-    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/man-painting-wall-with-roller_23-2148820754.jpg?w=996&t=st=1715268731~exp=1715269331~hmac=c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2",
     gradient: "from-rose-400 to-pink-500",
     featured: true,
     includes: [
@@ -102,7 +103,7 @@ const services = [
     price: 799,
     icon: "🔨",
     category: "Carpentry",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/carpenter-working-with-wood_23-2148820765.jpg?w=996&t=st=1715268761~exp=1715269361~hmac=d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2",
     gradient: "from-amber-600 to-yellow-600",
     featured: true,
     includes: [
@@ -121,7 +122,7 @@ const services = [
     price: 699,
     icon: "🤖",
     category: "Smart Home",
-    image: "https://images.unsplash.com/photo-1558618047-2796e2fc7ddd?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/smart-home-concept-with-devices_23-2148820777.jpg?w=996&t=st=1715268791~exp=1715269391~hmac=e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2",
     gradient: "from-purple-500 to-violet-600",
     featured: false,
     includes: [
@@ -140,7 +141,7 @@ const services = [
     price: 3499,
     icon: "🚿",
     category: "Renovation",
-    image: "https://images.unsplash.com/photo-1584622781564-1d987fa4e8e4?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/modern-bathroom-with-shower_23-2148820788.jpg?w=996&t=st=1715268821~exp=1715269421~hmac=f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2f2",
     gradient: "from-teal-400 to-cyan-500",
     featured: false,
     includes: [
@@ -159,7 +160,7 @@ const services = [
     price: 1899,
     icon: "🏠",
     category: "Flooring",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/man-installing-laminate-flooring_23-2148820799.jpg?w=996&t=st=1715268851~exp=1715269451~hmac=0202020202020202020202020202020202020202020202020202020202020202",
     gradient: "from-gray-600 to-slate-700",
     featured: false,
     includes: [
@@ -178,7 +179,7 @@ const services = [
     price: 349,
     icon: "🐛",
     category: "Pest Control",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/pest-control-specialist-spraying-pesticides_23-2148820810.jpg?w=996&t=st=1715268881~exp=1715269481~hmac=1212121212121212121212121212121212121212121212121212121212121212",
     gradient: "from-red-500 to-rose-600",
     featured: false,
     includes: [
@@ -197,7 +198,7 @@ const services = [
     price: 399,
     icon: "⚙️",
     category: "Appliance Repair",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/technician-repairing-kitchen-appliances_23-2148820821.jpg?w=996&t=st=1715268911~exp=1715269511~hmac=2222222222222222222222222222222222222222222222222222222222222222",
     gradient: "from-indigo-500 to-purple-600",
     featured: false,
     includes: [
@@ -216,7 +217,7 @@ const services = [
     price: 599,
     icon: "🌳",
     category: "Garden",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/gardener-working-in-the-garden_23-2148820832.jpg?w=996&t=st=1715268941~exp=1715269541~hmac=3232323232323232323232323232323232323232323232323232323232323232",
     gradient: "from-green-500 to-emerald-600",
     featured: false,
     includes: [
@@ -235,7 +236,7 @@ const services = [
     price: 899,
     icon: "🏠",
     category: "Roofing",
-    image: "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/roofer-working-on-roof_23-2148820843.jpg?w=996&t=st=1715268971~exp=1715269571~hmac=4242424242424242424242424242424242424242424242424242424242424242",
     gradient: "from-gray-700 to-gray-900",
     featured: false,
     includes: [
@@ -254,7 +255,7 @@ const services = [
     price: 599,
     icon: "🪟",
     category: "Windows",
-    image: "https://images.unsplash.com/photo-1564768282543-a49d6cc7b7ff?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/man-installing-window_23-2148820854.jpg?w=996&t=st=1715269001~exp=1715269601~hmac=5252525252525252525252525252525252525252525252525252525252525252",
     gradient: "from-slate-400 to-slate-600",
     featured: false,
     includes: [
@@ -273,7 +274,7 @@ const services = [
     price: 1299,
     icon: "🛡️",
     category: "Security",
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/security-camera-on-wall_23-2148820865.jpg?w=996&t=st=1715269031~exp=1715269631~hmac=6262626262626262626262626262626262626262626262626262626262626262",
     gradient: "from-red-600 to-red-800",
     featured: false,
     includes: [
@@ -292,7 +293,7 @@ const services = [
     price: 449,
     icon: "🏊",
     category: "Pool Service",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/man-cleaning-pool_23-2148820876.jpg?w=996&t=st=1715269061~exp=1715269661~hmac=7272727272727272727272727272727272727272727272727272727272727272",
     gradient: "from-blue-600 to-blue-800",
     featured: false,
     includes: [
@@ -311,7 +312,7 @@ const services = [
     price: 299,
     icon: "🏠",
     category: "Chimney",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/man-cleaning-chimney_23-2148820887.jpg?w=996&t=st=1715269091~exp=1715269691~hmac=8282828282828282828282828282828282828282828282828282828282828282",
     gradient: "from-orange-700 to-orange-900",
     featured: false,
     includes: [
@@ -330,7 +331,7 @@ const services = [
     price: 199,
     icon: "🔧",
     category: "Handyman",
-    image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=400&h=250&fit=crop&crop=center&auto=format&q=80",
+    image: "https://img.freepik.com/free-photo/man-doing-handyman-work_23-2148820898.jpg?w=996&t=st=1715269121~exp=1715269721~hmac=9292929292929292929292929292929292929292929292929292929292929292",
     gradient: "from-gray-500 to-gray-700",
     featured: false,
     includes: [

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const location = useLocation();
+  const { isLoggedIn, logout, isAdmin } = useAuth();
 
   const toggleMobileMenu = () => {
     setMobileMenu(!mobileMenu);
@@ -60,18 +62,29 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link
-              to="/login"
-              className="text-charcoal hover:text-teal-dark px-3 py-2 text-sm font-medium transition-colors"
-            >
-              Sign In
-            </Link>
-            <Link
-              to="/dashboard"
-              className="bg-teal-dark text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-80 transition-colors"
-            >
-              Dashboard
-            </Link>
+            {!isLoggedIn ? (
+              <Link
+                to="/login"
+                className="text-charcoal hover:text-teal-dark px-3 py-2 text-sm font-medium transition-colors"
+              >
+                Sign In
+              </Link>
+            ) : (
+              <button
+                onClick={logout}
+                className="text-charcoal hover:text-teal-dark px-3 py-2 text-sm font-medium transition-colors"
+              >
+                Sign Out
+              </button>
+            )}
+            {isLoggedIn && (
+              <Link
+                to={isAdmin ? "/admin/dashboard" : "/dashboard"}
+                className="bg-teal-dark text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-80 transition-colors"
+              >
+                Dashboard
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -127,20 +140,34 @@ export default function Header() {
           ))}
 
           <div className="border-t border-gray-200 pt-4 mt-4 space-y-2">
-            <Link
-              to="/login"
-              className="block px-3 py-2 rounded-md font-medium text-charcoal hover:text-teal-dark hover:bg-light-yellow transition-colors"
-              onClick={() => setMobileMenu(false)}
-            >
-              Sign In
-            </Link>
-            <Link
-              to="/dashboard"
-              className="block px-3 py-2 rounded-md font-medium text-white bg-teal-dark hover:bg-opacity-80 transition-colors text-center"
-              onClick={() => setMobileMenu(false)}
-            >
-              Dashboard
-            </Link>
+            {!isLoggedIn ? (
+              <Link
+                to="/login"
+                className="block px-3 py-2 rounded-md font-medium text-charcoal hover:text-teal-dark hover:bg-light-yellow transition-colors"
+                onClick={() => setMobileMenu(false)}
+              >
+                Sign In
+              </Link>
+            ) : (
+              <button
+                onClick={() => {
+                  logout();
+                  setMobileMenu(false);
+                }}
+                className="block w-full text-left px-3 py-2 rounded-md font-medium text-charcoal hover:text-teal-dark hover:bg-light-yellow transition-colors"
+              >
+                Sign Out
+              </button>
+            )}
+            {isLoggedIn && (
+              <Link
+                to={isAdmin ? "/admin/dashboard" : "/dashboard"}
+                className="block px-3 py-2 rounded-md font-medium text-white bg-teal-dark hover:bg-opacity-80 transition-colors text-center"
+                onClick={() => setMobileMenu(false)}
+              >
+                Dashboard
+              </Link>
+            )}
           </div>
         </div>
       </div>
