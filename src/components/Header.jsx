@@ -77,12 +77,12 @@ export default function Header() {
                 Sign Out
               </button>
             )}
-            {isLoggedIn && (
+            {isLoggedIn && isAdmin && (
               <Link
-                to={isAdmin ? "/admin/dashboard" : "/dashboard"}
+                to="/admin/dashboard"
                 className="bg-teal-dark text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-80 transition-colors"
               >
-                Dashboard
+                Admin Dashboard
               </Link>
             )}
           </div>
@@ -159,13 +159,13 @@ export default function Header() {
                 Sign Out
               </button>
             )}
-            {isLoggedIn && (
+            {isLoggedIn && isAdmin && (
               <Link
-                to={isAdmin ? "/admin/dashboard" : "/dashboard"}
+                to="/admin/dashboard"
                 className="block px-3 py-2 rounded-md font-medium text-white bg-teal-dark hover:bg-opacity-80 transition-colors text-center"
                 onClick={() => setMobileMenu(false)}
               >
-                Dashboard
+                Admin Dashboard
               </Link>
             )}
           </div>

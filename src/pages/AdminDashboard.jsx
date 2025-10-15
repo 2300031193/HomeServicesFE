@@ -6,6 +6,8 @@ import { getBookings } from '../data/bookingStorage';
 import UserList from '../components/UserList';
 import ServiceList from '../components/ServiceList';
 
+import BookingList from '../components/BookingList';
+
 const StatCard = ({ icon, label, value, color }) => (
   <motion.div 
     className={`p-6 rounded-2xl shadow-lg flex items-center space-x-4 bg-white`}
@@ -24,7 +26,7 @@ const StatCard = ({ icon, label, value, color }) => (
 const AdminDashboard = () => {
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
   const [services, setServices] = useState(servicesMock);
-  const bookings = getBookings();
+  const [bookings, setBookings] = useState(getBookings());
 
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
@@ -47,6 +49,7 @@ const AdminDashboard = () => {
       <div className="grid grid-cols-1 gap-8">
         <UserList users={users} setUsers={setUsers} />
         <ServiceList services={services} setServices={setServices} />
+        <BookingList bookings={bookings} setBookings={setBookings} />
       </div>
     </div>
   );

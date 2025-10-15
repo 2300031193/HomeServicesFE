@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import services from "../data/servicesMock";
 import { addBooking } from "../data/bookingStorage";
+import { useAuth } from "../contexts/AuthContext";
 import BookingForm from "../components/BookingForm";
 import AnimatedButton from "../components/AnimatedButton";
 
@@ -180,6 +181,8 @@ export default function Booking() {
     return () => ctx.revert();
   }, [animationComplete, service]);
 
+  const { user } = useAuth();
+
   const handleBookingSubmit = async (formData) => {
     setIsLoading(true);
     setError(null);
@@ -187,7 +190,8 @@ export default function Booking() {
     try {
       // Create booking data with accurate service information
       const bookingData = {
-        service: service.title,
+        service: service,
+        user: user,
         date: formData.date,
         time: formData.time,
         provider: service.providers ? service.providers[Math.floor(Math.random() * service.providers.length)] : "Professional Service Provider",
@@ -195,8 +199,6 @@ export default function Booking() {
         address: formData.address,
         notes: formData.notes,
         serviceId: service.id,
-        customerName: "John Doe", // In a real app, this would come from user profile
-        phone: "+1-555-0123" // In a real app, this would come from user profile
       };
 
       // Save booking to storage
@@ -208,7 +210,7 @@ export default function Booking() {
 
         // Navigate to dashboard after brief delay
         setTimeout(() => {
-          navigate('/dashboard');
+          navigate('/admin/dashboard');
         }, 3000);
       } else {
         setError('Failed to create booking. Please try again.');

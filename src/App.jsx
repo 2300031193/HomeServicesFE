@@ -8,7 +8,7 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import ProviderProfile from "./pages/ProviderProfile";
 import Booking from "./pages/Booking";
-import Dashboard from "./pages/Dashboard";
+
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import About from "./pages/About";
@@ -39,14 +39,7 @@ function AppContent() {
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/provider/:id" element={<ProviderProfile />} />
             <Route path="/booking/:serviceId" element={<Booking />} />
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
+
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />

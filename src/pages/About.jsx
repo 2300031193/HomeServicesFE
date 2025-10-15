@@ -199,21 +199,21 @@ export default function About() {
 
   const team = [
     {
-      name: "Alex Chen",
+      name: "USL.Chaitanya 2300031193",
       role: "CEO & Founder",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+      image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
       expertise: "Platform Architecture"
     },
     {
-      name: "Sarah Martinez",
+      name: "G Gnanesh 2300031699",
       role: "Head of Operations",
-      image: "https://images.unsplash.com/photo-1494790108755-2616c6b92b92?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
       expertise: "Service Management"
     },
     {
-      name: "David Kumar",
+      name: "C.Chetan Siva 2300031840",
       role: "CTO",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+      image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
       expertise: "Technology Innovation"
     }
   ];
